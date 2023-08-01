@@ -61,14 +61,14 @@ const IncomeItem = ({
 }
 
   return (
-    <IncomeItemStyled>
+    <IncomeItemStyled indicator={indicatorColor}>
       <div className="icon">
       {type === 'expense' ? expenseCatIcon() : categoryIcon()}
       </div>
       <div className="content">
         <h5>{title}</h5>
         <div className="inner-content">
-          <p>{rupee} 45</p>
+          <p>{rupee} {amount}</p>
           <p>
             {calender} {date}
           </p>
@@ -138,7 +138,7 @@ const IncomeItemStyled = styled.div`
         width: 0.8rem;
         height: 0.8rem;
         border-radius: 50%;
-        background: ${(props) => props.indicator};
+        background: ${props => props.indicator};
       }
     }
 
