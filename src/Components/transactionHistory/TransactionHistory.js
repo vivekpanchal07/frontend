@@ -9,11 +9,12 @@ function TransactionHistory() {
   const { transactionHistoryforTransaction } = useGlobalContext();
 
   const [...history] = transactionHistoryforTransaction();
-
   return (
     <TransactionHistoryStyled>
       <InnerLayout>
-        {history.map((item) => {
+        {history?
+
+        history.map((item) => {
           const {_id, title, amount, date, category, description, type} = item;
           return(
             <IncomeItem
@@ -28,7 +29,9 @@ function TransactionHistory() {
                     indicatorColor= {type === 'expense' ? 'red' : 'var(--color-green)'}
                     ></IncomeItem>)
           
-        })}
+        })
+       : <div>No Transaction Found</div> }
+        
       </InnerLayout>
     </TransactionHistoryStyled>
   );
