@@ -1,7 +1,7 @@
 import React, {useState, useMemo} from 'react'
 import Orb from './Components/orb/Orb'
 import Navigation from './Components/navigation/Navigation'
-import { useGlobalContext } from './context/globalContext';
+
 import Dashboard from './Components/dashboard/Dashboard';
 import Income from './Components/income/Income'
 import Expenses from './Components/expenses/Expenses';
@@ -9,9 +9,9 @@ import Expenses from './Components/expenses/Expenses';
 import bg from './img/bg.png'
 import styled from "styled-components";
 import { MainLayout} from './styles/Layouts';
+import History from './Components/history/History';
 function App() {
   const [active, setActive] = useState(1)
-  const global = useGlobalContext()
   const orbMemo = useMemo(() => {
     return <Orb />
   },[])
