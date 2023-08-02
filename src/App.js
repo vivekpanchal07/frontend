@@ -9,7 +9,8 @@ import Expenses from './Components/expenses/Expenses';
 import bg from './img/bg.png'
 import styled from "styled-components";
 import { MainLayout} from './styles/Layouts';
-import History from './Components/history/History';
+import Transaction from './Components/transaciton/Transaction';
+
 function App() {
   const [active, setActive] = useState(1)
   const orbMemo = useMemo(() => {
@@ -20,7 +21,7 @@ function App() {
       case 1:
         return <Dashboard />
       case 2:
-        return <Dashboard />
+        return <Transaction />
       case 3:
         return <Income />
       case 4: 

@@ -76,7 +76,7 @@ const IncomeItem = ({
             {comment}
             {description}
           </p>
-          <div className="btn-con">
+          {deleteItem? <div className="btn-con">
           <Button
             icon={trash}
             bPad={"1rem"}
@@ -87,7 +87,8 @@ const IncomeItem = ({
             hColor={"var(--color-green)"}
             onClick={() => deleteItem(id)}
           />
-        </div>
+        </div>:''}
+          
         </div>
         
       </div>

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 
@@ -11,7 +12,7 @@ export const GlobalProvider = ({ children }) => {
   const [error, setError] = useState(null);
   useEffect(() => {
     getIncomes();
-  }, []);
+  });
 
   const addIncome = async (income) => {
     const response = await axios
@@ -82,7 +83,14 @@ const transactionHistory = () => {
 
   return history.slice(0, 3)
 }
+const transactionHistoryforTransaction = () => {
+  const history = [...incomes, ...expenses]
+  history.sort((a, b) => {
+      return  new Date(a.createdAt) - new Date(b.createdAt) 
+  })
 
+  return history;
+}
 
   return (
     <GlobalContext.Provider
@@ -100,7 +108,8 @@ const transactionHistory = () => {
         expenses,
         error,
         setError,
-        transactionHistory
+        transactionHistory,
+        transactionHistoryforTransaction
       }}
     >
       {children}
